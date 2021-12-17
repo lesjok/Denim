@@ -41,13 +41,16 @@ ul, ol, li {
 }
 .menu {
   &__list {
-  display: flex;
-  font-weight: 500;
+    display: flex;
+    font-weight: 500; 
     &--left:not(:last-child) {
-    margin-right: 35px;
+      margin-right: 35px;
     }
     &--right {
-    transform: translateY(-1.5px);
+      & .menu__link {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
   &__link--basket {
@@ -63,51 +66,52 @@ ul, ol, li {
 .preview {
   overflow: hidden;
   &__container {
+    height: 656px;
     margin: 0 auto;
     display: flex;
     width: 1029px;
     position: relative;
   }
   .slider {
-    position: relative;
-      &::before,
-      &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        height: 30px;
-        width: 30px;
-        cursor: pointer;
-      }
-      &::before {
-        left: -72px;
-        top: 194px;
-        background: url('assets/arrow-prev.svg');
-        background-repeat: no-repeat;
-      }
-      &::after {
-        right: -89px;
-        top: 193px;
-        background: url('assets/arrow-next.svg');
-        background-repeat: no-repeat;
-      }
-  }
-  .covers {
+    transform: translateX(-52.5px);
     display: flex;
-    justify-content: space-between;
-    padding-top: 16px;
-      &__item {
-        height: 113px;
-        width: 85px;
-        cursor: pointer;
-      }
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 400px;
+    &__photo {
+      height: 113px;
+      overflow: hidden;
+      width: 85px;
+      cursor: pointer;
+      order: 1;
+    }
+    .big {
+      height: 523px;
+      width: 100%;
+      order: 0;
+    }
+    &__link--prev,
+    &__link--next {
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      background-repeat: no-repeat;
+    }
+    &__link--prev {
+      transform: translate(-73px, 192px);
+      background-image: url('../images/arrow-prev.svg');
+    }
+    &__link--next {
+      transform: translate(432px, 192px);
+      background-image: url('../images/arrow-next.svg');
+    }
   }
 }
 .info {
   background-color: var(--grey-color);
   padding: 70px;
   padding-top: 61px;
-  margin-left: 129px;
+  margin-left: 130px;
   position: absolute;
   left: 400px;
   min-width: 668px;
@@ -116,12 +120,11 @@ ul, ol, li {
   }
   &__title {
     font-size: 32px;
-    margin-bottom: 29px;
+    margin-bottom: 28px;
   }
   &__text {
     margin-bottom: 42px;
-    transform: scale(1.01);
-    padding-left: 1px;
+    transform: scale(1.003);
   }
   &__inputs {
     display: flex;
@@ -138,7 +141,7 @@ ul, ol, li {
     width: 17px;
     height: 17px;
     border-radius: 50%;
-    margin-right: 30px;
+    margin-right: 29px;
     cursor: pointer;
   }
   &+label.label-1::before {
@@ -161,7 +164,7 @@ ul, ol, li {
   }
   }
   .info__subtitle {
-    margin-top: 43px;
+    margin-top: 41px;
     font-weight: 500;
     font-size: 18px;
   }
@@ -183,7 +186,7 @@ ul, ol, li {
   &__price {
     font-weight: bold;
     font-size: 18px;
-    margin-top: 31px;
+    margin-top: 32px;
     margin-bottom: 46px;
   }
   &__btn {
@@ -192,12 +195,13 @@ ul, ol, li {
     color: var(--white-color);
     background-color: var(--primary-color);
     font-weight: bold;
-    font-size: 17px;
+    font-size: 16.6px;
+    padding-right: 2px;
     cursor: pointer;
   }
 }
 .similar-goods {
-  padding-top: 122px;
+  padding-top: 121px;
   padding-bottom: 126px;
   .similar-goods__container {
     max-width: 1170px;
@@ -241,8 +245,7 @@ ul, ol, li {
 .footer{
   &__container {
     background-color: var(--primary-color);
-    margin: 0 auto;
-    
+    margin: 0 auto; 
     text-align: center;
     padding-top: 45px;
   }
@@ -268,7 +271,7 @@ ul, ol, li {
     display: flex;
     max-width: 157px;
     margin: 0 auto;
-    padding-top: 33px;
+    padding-top: 34px;
     padding-bottom: 50px;
     &__item {
       padding-right: 33px;
